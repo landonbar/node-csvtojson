@@ -28,7 +28,7 @@ Parser.prototype.convertType = function(item) {
     }
   } else if (this.param && this.param.checkType && type === '') {
     var trimed = item.trim();
-    if (numReg.test(trimed)) {
+    if (numReg.test(trimed) && !(trimed.indexOf('0')==0 && trimed.indexOf('0.')!=0) ) {
       return parseFloat(trimed);
     } else if (trimed.length === 5 && trimed.toLowerCase() === "false") {
       return false;
